@@ -10,7 +10,7 @@
 
 .sidebar {
   width: 70px;
-  background: linear-gradient(135deg, #0056b3, #003d8b);
+    background: linear-gradient(135deg, #38b6ff, #009ad6);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -22,8 +22,8 @@
   left: 0;
   height: 100%;
   z-index: 1000;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
   overflow: hidden;
 }
 
