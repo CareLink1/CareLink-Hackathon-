@@ -1,0 +1,80 @@
+.pricingContainer {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: #f4f7fa;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #1a3c8b;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: #555;
+}
+
+.billingToggle {
+  margin-bottom: 2rem;
+}
+
+.billingToggle button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.active {
+  background-color: green;
+  color: white;
+}
+
+.planCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  animation: fadeInUp 0.6s ease-in-out;
+}
+.link{
+  text-decoration: none;
+}
+.enterpriseSection {
+  margin-top: 3rem;
+}
+
+.enterpriseSection h3 {
+  font-size: 1.2rem;
+  color: #1a3c8b;
+}
+
+.enterpriseSection a {
+  color: #1a3c8b;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .planCards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
