@@ -12,7 +12,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Plans /> },
       { path: "createaccount", element: <CreateAccount /> , loader: () => new Promise(res => setTimeout(res, 1500))
  },  
-    {path: "/home",  element: <Dashboard />, loader: () => new Promise(res => setTimeout(res, 1500))}
+    {path: "/dashboard",  element: <Dashboard />, loader: () => new Promise(res => setTimeout(res, 1500))}
     ]
   },
  

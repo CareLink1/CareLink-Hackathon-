@@ -1,28 +1,49 @@
 import { useState } from 'react';
 import styles from './Dashboard.module.css';
 import {  FaBars, FaTimes } from 'react-icons/fa';
+import { useUserContext } from '../user context/UserContext';
+import { Navigate, useNavigate } from 'react-router-dom';
+import usersInfo from '../../usersInfo';
+import photo from '../../assets/panda.jpg'
+
+
 
 const Dashboard = () => {
-  const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const { isLoggedIn, handleSignOut, currentUserEmail } = useUserContext();
+    const navigate = useNavigate();
+    const [isNavExpanded, setIsNavExpanded] = useState(false);
 
-  const toggleNav = () => {
-    setIsNavExpanded(!isNavExpanded);
-  };
+
+    const currentUser = usersInfo.getUsers().find(
+        user => user.email?.toLowerCase() === currentUserEmail.toLowerCase()
+    );
+
+    if (!isLoggedIn) {
+        return <Navigate to="/createaccount" replace />;
+    }
+
+    const toggleNav = () => {
+        setIsNavExpanded(!isNavExpanded);
+    };
+
+    const onSignOut = () => {
+        handleSignOut();
+        navigate('/createaccount');
+    };
 
   return (
     <div className={styles.container}>
       <aside className={`${styles.sidebar} ${isNavExpanded ? styles.expanded : ''}`}>
         <div className={styles.profile}>
-          <img src="/profile.jpg" alt="Naomie Ekon" className={styles.avatar} />
-          <h3 className={styles.profileName}>NAOMIE EKON</h3>
-          <p className={styles.profileEmail}>ekonnaomie66@gmail.com</p>
+          <img src={photo} alt="Naomie Ekon" className={styles.avatar} />
+          <h3 className={styles.profileName}>{currentUser ? `${currentUser.firstName} ${currentUser.lastName}` : 'Guest User'}</h3>
+          <p className={styles.profileEmail}>{currentUser.email}</p>
         </div>
         <nav className={styles.nav}>
-          <button className={styles.navButton}><span className={styles.navIcon}>🏠</span> Dashboard</button>
-          <button className={styles.navButton}><span className={styles.navIcon}>🏠</span> Dashboard</button>
-          <button className={styles.navButton}><span className={styles.navIcon}>🏠</span> Dashboard</button>
-          <button className={styles.navButton}><span className={styles.navIcon}>🏠</span> Dashboard</button>
-          <button className={styles.signOut}><span className={styles.navIcon}>↪</span> Sign-out</button>
+          <button className={styles.navButton}><span className={styles.navIcon}>🏠</span>AI ChatBot</button>
+          <button className={styles.navButton}><span className={styles.navIcon}>🏠</span>Blood Monitoring</button>
+          <button className={styles.navButton}><span className={styles.navIcon}>🏠</span>Patience Feedback</button>
+          <button className={styles.signOut} onClick={onSignOut}><span className={styles.navIcon}>↪</span> Sign-out</button>
         </nav>
         <button className={styles.closeBtn} onClick={toggleNav}>
           <FaTimes />
@@ -53,7 +74,7 @@ const Dashboard = () => {
       <aside className={styles.rightPanel}>
         <div className={styles.topRight}>
           <img src="/profile.jpg" alt="Naomie Ekon" className={styles.rightAvatar} />
-          <p className={styles.userName}>Naomie Ekon</p>
+          <p className={styles.userName}>{`${currentUser.firstName} ${currentUser.lastName}`}</p>
         </div>
         <div className={styles.historyChat}>
           <h4 className={styles.historyTitle}>History Chat</h4>

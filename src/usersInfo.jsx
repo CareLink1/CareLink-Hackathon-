@@ -1,20 +1,20 @@
 class UserInfo {
   constructor() {
     this.id = 0;
-    this.users = [];
+    this.users = JSON.parse(localStorage.getItem('users')) || [];
   }
 
   addUser({ firstName, lastName, password, phone, language, agree, email }) {
     const id = this.id;
     const newUser = {
-      id,
-      firstName,
-      lastName,
-      password,
-      phone,
-      language,
-      agree,
-      email
+      id: id,
+      firstName: firstName,
+      lastName: lastName,
+      password: password,
+      phone: phone,
+      language: language,
+      agree: agree,
+      email: email
     };
     this.users.push(newUser);
     this.id++;
