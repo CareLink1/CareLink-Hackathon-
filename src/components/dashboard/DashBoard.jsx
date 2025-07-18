@@ -52,7 +52,7 @@ const Dashboard = () => {
 
       <main className={styles.chatArea}>
         <header className={styles.header}>
-          Chatbot
+         CareLink Chatbot
           <button className={styles.hamburger} onClick={toggleNav}>
             <FaBars />
           </button>
@@ -73,7 +73,7 @@ const Dashboard = () => {
 
       <aside className={styles.rightPanel}>
         <div className={styles.topRight}>
-          <img src="/profile.jpg" alt="Naomie Ekon" className={styles.rightAvatar} />
+          <img src={photo} alt={currentUser.name} className={styles.rightAvatar} />
           <p className={styles.userName}>{`${currentUser.firstName} ${currentUser.lastName}`}</p>
         </div>
         <div className={styles.historyChat}>

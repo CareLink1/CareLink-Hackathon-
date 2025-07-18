@@ -261,6 +261,8 @@
   cursor: pointer;
   font-weight: 600;
   transition: transform 0.2s ease;
+  width: 50%;
+  margin: auto;
 }
 
 .generate:hover {

@@ -19,12 +19,12 @@ const CreateAccount = () => {
         setLogEmail,
         setLogPass
     } = useUserContext();
-    const navigate = useNavigate(); // Add useNavigate here
+    const navigate = useNavigate();
 
     const onSubmit = async (e) => {
-        const success = await handleSubmit(e); // Call handleSubmit
+        const success = await handleSubmit(e); 
         if (success) {
-            navigate('/dashboard'); // Navigate to dashboard on success
+            navigate('/dashboard'); 
         }
     };
 
